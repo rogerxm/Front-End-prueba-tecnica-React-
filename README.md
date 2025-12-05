@@ -1,124 +1,113 @@
-# Front-End-prueba-tecnica-React
-Instrucciones de la prueba tecnica 
-
-La siguiente es una prueba para evaluar a los postulantes para un perfil de Front End.
-
-## INTRODUCCIÓN
-Este repositorio contiene una serie de requerimientos de un Caso Práctico, que busca evaluar las capacidades técnicas del candidato con respecto a las principales funciones y responsabilidades que se requieren dentro del área de Desarrollo de software de Neology.
-
-## ¿Qué se busca evaluar?
-Principalmente los siguientes aspectos:
-Creatividad para resolver los requerimientos,
-Uso de experiencia y conocimiento en base a buenas praticas,
-Eficiencia de los algoritmos entregados,
-Mostrar la experencía y la manera de poder salir de la caja para romper o identificar cualquier falla o mejora,
-Familiaridad con Frameworks y plataformas.
-
-## Consideraciones al finalizar la prueba:
-Enviar la prueba tecnica hacía el correo de la consultora y copiando la prueba al correo vmiranda@neology.mx y lluna@neopartners.mx
-Cumplir con los puntos que solicitan, hacer enfasis en el detalle de las interfaces
-Clonar el proyecto y subirlo como una rama adicional
-
-
 ## Prueba Técnica para Desarrollador Front-End React
 
 ## Parte 1 tecnica:
-Instrucciones:
-* Tiempo estimado: 2 horas
-* Se espera que completes las tareas especificadas a continuación utilizando React.
-* La prueba se evaluará en función de la calidad del código, la organización, la atención al detalle y la precisión en la implementación de los requisitos.
-Requisitos:
-* 		Configuración del Proyecto:
-    * Crea un nuevo proyecto en React utilizando la versión más reciente.
-    * Configura el proyecto para que pueda realizar solicitudes a una API REST en formato JSON.
 
-* 		Consumo de API:
-    * Utiliza la API pública de JSONPlaceholder (https://jsonplaceholder.typicode.com/) para obtener datos de usuarios (https://jsonplaceholder.typicode.com/users).
-    * Crea un servicio en React para realizar la solicitud HTTP para obtener la lista de usuarios.
-    * Muestra la lista de usuarios obtenida en una página de tu aplicación.
+## Características Implementadas
 
-* 		Detalle de Usuario:
-    * Implementa una funcionalidad para que al hacer clic en un usuario de la lista, se muestren los detalles completos de ese usuario.
-    * Usa una interfaz de usuario que sea intuitiva y llamativa segun tu experiencia 
-    * Utiliza una ruta adicional para mostrar los detalles del usuario en una página separada.
-    * Al seleccionar un usuario dentro del listado se desea ver el detalle de un usuario en particular 
-    * El back no contempla búsquedas por usuario pero se requiere hacer la búsqueda filtrando desde el front por el nombre del usuario
+- **Configuración:** Proyecto inicializado con Vite y React + TypeScript.
+- **Consumo de API:** Servicio tipado (`userService.ts`) para obtener usuarios de JSONPlaceholder.
+- **Listado y Detalle:** Dos rutas separadas (`/` y `/users/:id`) para el listado y el detalle, utilizando `react-router`.
+- **Búsqueda:** Filtrado por nombre en el Front-End.
+- **Estilos:** Uso de Material UI (MUI) para un diseño profesional y responsive.
+- **Seguridad:** Implementación de una función de sanitización (`sanitizeInput`) para el campo de búsqueda para prevenir ataques.
+- **Paginación:** Se implementó paginación para mostrar 5 usuarios por página en el listado.
 
-* 		Estilos y Diseño:
-    * Utiliza CSS o algún preprocesador (como SASS o LESS) para dar estilo a tu aplicación.
-    * Asegúrate de que la aplicación sea responsive y se vea bien en dispositivos de diferentes tamaños.
+## Cómo Ejecutar el Proyecto Localmente
 
-Extras (Opcional, pero altamente recomendado):
-* Agrega funcionalidad de paginación para mostrar solo un número limitado de usuarios por página.
-* Utiliza React Material para mejorar el diseño y la experiencia del usuario.
-* Implementa pruebas unitarias para los componentes y servicios principales de tu aplicación.
+1.  **Clonar el repositorio:**
+2.  **Instalar dependencias:**
+3.  **Ejecutar el servidor de desarrollo:**
 
-Entrega:
-* Sube tu código a un repositorio público en GitHub o GitLab.
-* Incluye instrucciones claras sobre cómo ejecutar tu proyecto localmente.
-* Envía el enlace del repositorio a los evaluadores.
-* Enviar una captura de pantalla del desarrollo e interacciones 
-* Añadir validaciones en el campo de búsqueda pare evitar ataques de scripting 
-* Añadir pruebas unitarias fundamentales
+El proyecto estará disponible en `http://localhost:5173` (o el puerto que te indique Vite).
 
-Nota:
-No te preocupes si no puedes completar todos los requisitos en el tiempo asignado. Se valorará el progreso y la calidad del trabajo realizado.
-
- ## Parte 2 Teorica
-
+## Parte 2 Teorica
 
 ## 1. Angular y React:
 
 ¿Qué es React y cuál es su propósito principal en el desarrollo web?
-¿Qué es un componente en React y cómo se crea uno?
-¿Cuál es la diferencia entre ngOnInit() y constructor() en Angular?
+R: React es una biblioteca de JavaScript de código abierto para construir interfaces de usuario (UI).
 
-¿Qué es REACT y cuál es su propósito principal en el desarrollo web?
-¿Qué es un componente en REACT y cómo se crea uno?
-¿Cuál es la diferencia entre ngOnInit() y constructor() en REACT?
+Su propósito principal es permitir a los desarrolladores crear interfaces de usuario interactivas y eficientes utilizando un enfoque basado en componentes. React se encarga de actualizar y renderizar eficientemente solo los componentes que han cambiado, gracias al concepto del Virtual DOM.
+
+¿Qué es un componente en React y cómo se crea uno?
+R: Una pieza de código independiente y reutilizable que encapsula UI y lógica. Se crea principalmente como una función de JavaScript que devuelve código JSX.
+
+¿Cuál es la diferencia entre ngOnInit() y constructor() en Angular?
+R: El constructor() es para inyección de dependencias (DI) e inicialización simple.
 
 ## 2. HTML5:
 
 ¿Cuáles son algunas de las nuevas características introducidas en HTML5?
+R: Semántica: Nuevas etiquetas (<header>, <article>, <nav>). Multimedia: Etiquetas <audio> y <video> nativas. Almacenamiento: localStorage y sessionStorage. Gráficos: <canvas> y mejor soporte para SVG.
+
 Describe la diferencia entre las etiquetas <div> y <span>.
+R: <article> es para contenido independiente y autosuficiente (ej. un post de blog). <section> es para agrupación temática de contenido dentro de un documento o artículo.
+
 ¿Qué son los atributos data- en HTML5 y para qué se utilizan?
+R: Atributos personalizados para almacenar datos privados directamente en el HTML. Se utilizan para vincular datos de la interfaz de usuario que serán manipulados por JavaScript.
 
 ## 3. CSS/Sass:
 
 ¿Qué es Sass y cuál es su ventaja sobre CSS convencional?
+R: Es un preprocesador de CSS que se compila a CSS plano. Su ventaja es que añade características de programación (variables, anidamiento, mixins) que hacen el código más modular, mantenible y escalable.
+
 Explica la diferencia entre @import y @use en Sass.
+R: @import (obsoleto) vierte todo al ámbito global. @use (moderno) carga módulos una sola vez y los requiere acceder a través de un espacio de nombres (namespace) para evitar colisiones.
+
 ¿Qué es BEM y cómo puede mejorar la estructura y mantenimiento del código CSS?
+R: BEM es una metodología de nomenclatura para hacer que las clases de CSS sean modulares y predecibles. Mejora la estructura porque indica inmediatamente la relación y el contexto en la UI.
 
 ## 4. JavaScript / TypeScript:
 
 ¿Cuál es la diferencia entre JavaScript y TypeScript?
+R: JS es un lenguaje dinámico y débilmente tipado. TS es un superconjunto de JS que es estático y fuertemente tipado. TS compila a JS y permite la detección de errores en tiempo de compilación.
+
 ¿Qué son los tipos en TypeScript y cómo pueden mejorar el desarrollo de aplicaciones web?
+R: Son anotaciones (: string, : number) que definen el tipo de datos esperado. Mejoran el desarrollo ofreciendo detección temprana de errores, mejor legibilidad y excelente autocompletado (IntelliSense) en el editor.
+
 Explica cómo se declara una variable en JavaScript y en TypeScript.
+R: JS: Se usan var, let, o const (ej. let nombre = "Roger";). TS: Se usa la misma sintaxis, pero se puede añadir una anotación de tipo (ej. let nombre: string = "Roger";).
 
 ## 5. Sistema de Gestión de Paquetes (npm):
 
 ¿Qué es npm y cuál es su función en el desarrollo de aplicaciones web?
+R: NPM es el gestor de paquetes por defecto para el ecosistema de JavaScript. Su función es permitir la instalación, gestión y publicación de dependencias y librerías de código abierto en un proyecto.
+
 Describe el proceso para instalar un paquete npm en un proyecto.
+R: 1. Asegurarse de tener package.json. 2. Ejecutar npm install nombre-del-paquete. 3. El paquete se guarda en la carpeta node_modules/ y su referencia se añade a package.json.
 
 ## 6. Integración e Implementación de APIs y WebSocket :
 
 Explica qué es una API y cómo se utiliza en el desarrollo web.
+R: Es un conjunto de reglas que permite que el frontend y el backend se comuniquen. Se usa para que el cliente solicite o envíe datos al servidor (ej. APIs REST).
+
 ¿Qué es JSON y cuál es su relación con las APIs REST?
+R:Es un formato de texto ligero para el intercambio de datos. Es el formato estándar que las APIs REST utilizan para enviar y recibir datos.
+
 Describe el proceso para realizar una solicitud GET a una API REST utilizando JavaScript/TypeScript.
+R: Se usa la API fetch para enviar una solicitud. Se maneja la Promise devuelta, se verifica la respuesta (response.ok), y se llama a response.json() para parsear los datos: fetch(url).then(res => res.json()).then(data => ...)
+
 Descripbe como integrarias un WebSocket
+R: 1. Crear una nueva instancia de new WebSocket(url_wss). 2. Usar el handler socket.onmessage para recibir y procesar los datos en tiempo real. 3. Usar socket.onopen y socket.send(data) para la comunicación.
 
 ## 7. Patrón MVC:
 
 Define el patrón de diseño Modelo-Vista-Controlador (MVC) y explica sus componentes.
+R: Patrón de diseño que separa la interfaz de usuario de la lógica de negocio. Modelo: Datos y lógica de negocio. Vista: Interfaz de usuario y presentación. Controlador: Intermediario que recibe la entrada de la Vista y coordina al Modelo.
+
 ¿Cuál es la ventaja de utilizar el patrón MVC en el desarrollo de aplicaciones web?
+R: Separación de Preocupaciones que facilita la modularidad, la reutilización de código (especialmente del Modelo) y la mantenibilidad (los cambios en la UI no afectan la lógica).
 
 ## 8. Desarrollo de Pruebas Unitarias e Integración (Jasmine y Karma):
 
 ¿Qué son las pruebas unitarias y por qué son importantes en el desarrollo de software?
+R: Pruebas que verifican el correcto funcionamiento de la unidad más pequeña de código de forma aislada (función o clase). Son importantes para la detección temprana de errores y para garantizar la seguridad durante la refactorización.
+
 Explica la diferencia entre las pruebas unitarias y las pruebas de integración.
+R: Unitarias: Prueban una sola unidad de código aislada (usando mocks para dependencias). Integración: Prueban cómo múltiples unidades o componentes interactúan y fluyen juntos.
+
 Describe cómo se configura y ejecuta un conjunto de pruebas Jasmine utilizando Karma en un proyecto Angular.
+R: Jasmine es el framework para escribir las pruebas (describe, it). Karma es el ejecutor que carga las pruebas en un navegador. Se configuran automáticamente con Angular CLI, y se ejecutan con el comando ng test.
+
 ¿Qué tan comodo te sentirias trabajando con Angular?
-
-Nota: No te preocupes si no puedes responder a todas las preguntas con precisión. Se valorará el conocimiento general y la comprensión de los conceptos clave. ¡Buena suerte!
-
-
+R: Motivado y con confianza. Aunque carezco de experiencia directa con Angular, mi conocimiento en TypeScript, componentes, patrones MVC y pruebas unitarias/integración proporciona una base sólida para adoptar el framework rápidamente.
