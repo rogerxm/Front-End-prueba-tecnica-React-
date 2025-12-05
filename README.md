@@ -16,7 +16,16 @@
 
 1.  **Clonar el repositorio:**
 2.  **Instalar dependencias:**
+
+```
+npm install
+```
+
 3.  **Ejecutar el servidor de desarrollo:**
+
+```
+npm run dev
+```
 
 El proyecto estará disponible en `http://localhost:5173` (o el puerto que te indique Vite).
 
