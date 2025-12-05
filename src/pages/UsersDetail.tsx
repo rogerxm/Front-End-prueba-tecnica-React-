@@ -42,61 +42,88 @@ const UserDetail = () => {
 
   if (loading)
     return (
-      <Box sx={{ display: "flex", justifyContent: "center", mt: 5 }}>
-        <CircularProgress />
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          minHeight: "80vh",
+        }}
+      >
+        <CircularProgress size={60} />
       </Box>
     );
 
   if (error)
     return (
-      <Typography variant="h5" color="error" align="center">
-        {error}
-      </Typography>
+      <Container sx={{ mt: 4 }}>
+        <Typography variant="h5" color="error" align="center" component="div">
+          ⚠️ {error}
+        </Typography>
+      </Container>
     );
 
   if (!user)
     return (
-      <Typography variant="h5" align="center">
-        Usuario no encontrado
-      </Typography>
+      <Container sx={{ mt: 4 }}>
+        <Typography variant="h5" align="center" component="div">
+          Usuario no encontrado
+        </Typography>
+      </Container>
     );
 
   return (
-    <Container sx={{ mt: 4 }}>
+    <Container sx={{ mt: 4, mb: 4 }}>
       <Button
         startIcon={<ArrowBackIcon />}
         onClick={() => navigate("/")}
-        variant="outlined"
+        variant="text"
         sx={{ mb: 3 }}
       >
         Volver al listado
       </Button>
 
-      <Paper elevation={6} sx={{ p: { xs: 2, md: 4 } }}>
-        <Typography variant="h3" component="h1" gutterBottom color="primary">
-          {user.name}
-        </Typography>
-        <Typography variant="h5" color="text.secondary" sx={{ mb: 3 }}>
-          Username: @{user.username}
-        </Typography>
-        <Divider sx={{ mb: 3 }} />
+      <Paper elevation={8} sx={{ p: { xs: 2, sm: 3, md: 5 }, borderRadius: 2 }}>
+        {/* Encabezado */}
+        <Box sx={{ mb: 3 }}>
+          <Typography
+            variant="h3"
+            component="h1"
+            color="primary"
+            sx={{ fontWeight: 700 }}
+          >
+            {user.name}
+          </Typography>
+          <Typography variant="h5" color="text.secondary" sx={{ mt: 0.5 }}>
+            @{user.username}
+          </Typography>
+        </Box>
+        <Divider sx={{ mb: 4 }} />
 
-        <Grid container spacing={3}>
+        {/* Contenido en Grid responsivo */}
+        <Grid container spacing={{ xs: 4, md: 5 }}>
+          {/* Contacto Personal */}
           <Grid>
-            <Typography variant="h6" gutterBottom>
-              Contacto Personal
+            <Typography
+              variant="h5"
+              gutterBottom
+              color="text.primary"
+              sx={{ borderBottom: "2px solid", borderColor: "divider", pb: 1 }}
+            >
+              📞 Contacto Personal
             </Typography>
             <Box
               sx={{
-                pl: 1,
-                borderLeft: "3px solid",
-                borderColor: "primary.main",
+                pl: 2,
+                mt: 2,
+                borderLeft: "4px solid",
+                borderColor: "primary.light",
               }}
             >
-              <Typography variant="body1">
+              <Typography variant="body1" sx={{ mb: 1 }}>
                 <strong>Email:</strong> {user.email}
               </Typography>
-              <Typography variant="body1">
+              <Typography variant="body1" sx={{ mb: 1 }}>
                 <strong>Teléfono:</strong> {user.phone}
               </Typography>
               <Typography variant="body1">
@@ -105,6 +132,11 @@ const UserDetail = () => {
                   href={`http://${user.website}`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  style={{
+                    color: "inherit",
+                    textDecoration: "none",
+                    fontWeight: "bold",
+                  }}
                 >
                   {user.website}
                 </a>
@@ -112,38 +144,67 @@ const UserDetail = () => {
             </Box>
           </Grid>
 
+          {/* Información de Empresa */}
           <Grid>
-            <Typography variant="h6" gutterBottom>
-              Información de Empresa
+            <Typography
+              variant="h5"
+              gutterBottom
+              color="text.primary"
+              sx={{ borderBottom: "2px solid", borderColor: "divider", pb: 1 }}
+            >
+              🏢 Información de Empresa
             </Typography>
             <Box
               sx={{
-                pl: 1,
-                borderLeft: "3px solid",
-                borderColor: "secondary.main",
+                pl: 2,
+                mt: 2,
+                borderLeft: "4px solid",
+                borderColor: "secondary.light",
               }}
             >
-              <Typography variant="body1">
+              <Typography variant="body1" sx={{ mb: 1 }}>
                 <strong>Compañía:</strong> {user.company.name}
               </Typography>
-              <Typography variant="body2" fontStyle="italic">
+              <Typography
+                variant="subtitle1"
+                fontStyle="italic"
+                sx={{ my: 1, color: "text.secondary" }}
+              >
                 "Catchphrase": {user.company.catchPhrase}
               </Typography>
-              <Typography variant="body2">Sector: {user.company.bs}</Typography>
+              <Typography variant="body2">
+                Sector: **{user.company.bs}**
+              </Typography>
             </Box>
           </Grid>
+        </Grid>
 
+        {/* Dirección */}
+        <Divider sx={{ my: 4 }} />
+        <Grid container spacing={3}>
           <Grid>
-            <Divider sx={{ my: 3 }} />
-            <Typography variant="h6" gutterBottom>
-              Dirección
+            <Typography
+              variant="h5"
+              gutterBottom
+              color="text.primary"
+              sx={{ borderBottom: "2px solid", borderColor: "divider", pb: 1 }}
+            >
+              📍 Dirección
             </Typography>
-            <Typography variant="body1">
-              {user.address.street}, {user.address.suite}
-            </Typography>
-            <Typography variant="body1">
-              {user.address.city}, {user.address.zipcode}
-            </Typography>
+            <Box sx={{ mt: 2, pl: 1 }}>
+              <Typography variant="body1">
+                {user.address.street}, {user.address.suite}
+              </Typography>
+              <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+                {user.address.city}, {user.address.zipcode}
+              </Typography>
+              <Typography
+                variant="body2"
+                sx={{ mt: 1, color: "text.secondary" }}
+              >
+                (Geo: {user.address.geo.lat}, {user.address.geo.lng})
+              </Typography>
+            </Box>
           </Grid>
         </Grid>
       </Paper>
